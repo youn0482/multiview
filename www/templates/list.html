@@ -1,0 +1,31 @@
+<ion-header-bar class="bar-positive">
+        <button class="button button-icon ion-ios-trash" ng-click="clear()"></button>
+        <h1 class="title">Multi Lists</h1>
+        <button class="button button-icon ion-navicon" ng-click="data.showReorder = !data.showReorder"></button>
+</ion-header-bar>
+   
+   <ion-content>
+    <ion-list class="leftReorderButton" show-reorder="data.showReorder">
+        <ion-item class="item item-button-right" ng-repeat="toDo in toDos track by $index">                     
+            <ion-reorder-button class="button ion-navicon" on-reorder="moveItem(toDo, $fromIndex, $toIndex)"></ion-reorder-button>
+
+            {{toDo.text}}
+
+            <button class="button button-clear button-small" ng-click="delete($index)"><i class="icon ion-close-round"></i>
+                </button> 
+
+        </ion-item>
+    </ion-list>
+</ion-content>
+
+<form name="itemInput" ng-submit="submit()">
+        <ion-footer-bar class="bar bar-footer item-input-inset">
+          <label class="item-input-wrapper">
+            <input name="text" class="itemAdd" type="text" placeholder="Add it to the list!" ng-model="text">
+          </label>
+          <button class="button button-clear button-positive" >
+              <i class="ion-plus-round"></i>
+            </button>
+
+        </ion-footer-bar>
+</form>

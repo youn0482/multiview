@@ -1,0 +1,1 @@
+//var app = angular.module('multiView-controllers', ['ionic', 'localStorageModule']);
